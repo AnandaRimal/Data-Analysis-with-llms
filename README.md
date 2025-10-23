@@ -40,12 +40,22 @@ An intelligent data analysis platform that allows you to chat with your CSV data
    pip install uv
    ```
 
-3. **Install dependencies using uv**:
+3. **Initialize uv project** (if starting fresh):
    ```bash
-   uv pip install -r requirements.txt
+   uv init
    ```
 
-4. **Set up your API key**:
+4. **Install all dependencies from pyproject.toml**:
+   ```bash
+   uv sync
+   ```
+   
+   Or to add dependencies individually:
+   ```bash
+   uv add streamlit pandas matplotlib seaborn langchain langchain-experimental langchain-google-genai python-dotenv
+   ```
+
+5. **Set up your API key**:
    
    Create a `.env` file in the project root:
    ```env
@@ -54,9 +64,9 @@ An intelligent data analysis platform that allows you to chat with your CSV data
    
    Get your API key from: https://makersuite.google.com/app/apikey
 
-5. **Run the application**:
+6. **Run the application**:
    ```bash
-   streamlit run main.py
+   uv run streamlit run main.py
    ```
 
 The app will open automatically at `http://localhost:8501`
@@ -229,7 +239,7 @@ See `requirements.txt` for complete list.
 ### Local Production
 
 ```bash
-streamlit run main.py --server.port 8080
+uv run streamlit run main.py --server.port 8080
 ```
 
 ## 🤝 Contributing
